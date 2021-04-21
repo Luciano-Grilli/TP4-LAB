@@ -42,7 +42,7 @@ app.get('/getOneEmpleado',(req,res)=> {
         console.log(emp)
         
         res.render(
-            'index',
+            'unEmpleado',
             {emp: emp}
         )
     })
