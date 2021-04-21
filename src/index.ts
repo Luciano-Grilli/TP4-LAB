@@ -12,15 +12,16 @@ app.listen(3000, ()=> console.log("Servidor en puerto 3000", 3000));
 
 app.set('view engine', 'hbs')
 
-var getAll = getEmpleados()    
+   
 
      
 //const emplea = getEmpleados();
 app.get('/',(req,res)=> {
+    var getAll = getEmpleados() 
     var emp :any= [];
     getAll.then(val =>{
         emp= val;
-        console.log(emp)
+        //console.log(emp)
         
         res.render(
             'index',
@@ -56,22 +57,46 @@ app.get('/crear',(req,res)=> {
 });
 
 app.get('/editar/:id',(req,res)=> {
-    
+    var getAll = getEmpleados()
     var id =parseInt(req.params.id);
     console.log(id);
     var emp :any = [];
-    var OneEmpleado:Empleado;
+    var OneEmpleado:any=[];
+    
     getAll.then(val =>{
-        emp= val;
+        emp = val;
+
         
+        OneEmpleado = emp.filter((e:Empleado) =>{
+            if (e.id == id) {
+                return e;
+            }
+        })
+        
+        
+        //console.log(OneEmpleado[0])
        
-        console.log(emp[id]);
         res.render(
             'editar',
-            {OneEmpleado: emp[id-1]}
+            {OneEmpleado: OneEmpleado[0]}
         )
         
     })
 
 });
+
+app.get('/eliminar/:id',(req,res)=> {
+    
+    var id =parseInt(req.params.id);
+    
+        console.log('id--'+id)
+        res.render(
+            'eliminar',
+            {id: id}
+        )
+        
+    
+
+});
+
 

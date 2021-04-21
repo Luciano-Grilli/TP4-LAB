@@ -1,0 +1,47 @@
+<script>
+    
+    try{
+        
+        
+        console.log({{id}})
+        const response =  fetch('/eliminar/{{id}}', {
+        method: 'DELETE',
+        })
+        
+        const data =  response;
+        //console.log(data)
+        data.then(val => console.log(val));
+
+       
+        
+        console.log('holaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa'+data)
+        
+        
+        }catch (error){
+            console.log('error')
+            console.log(error);
+        }
+
+</script>
+
+<style type="text/css">
+  body {
+    padding-left: 11em;
+    font-family: Georgia, "Times New Roman",
+          Times, serif;
+    color: purple;
+    background-color: #d8da3d }
+  ul.navbar {
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif } 
+  </style>
+
+  <body>
+      <p>Eliminado!</p>
+      <a href="http://localhost:3000/">Volver</a>
+  </body>
