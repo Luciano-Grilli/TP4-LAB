@@ -1,4 +1,64 @@
+<script>
 
+    document.addEventListener("DOMContentLoaded", function(e) {
+
+    var miForm = document.getElementById('miForm');
+    miForm.onsubmit = function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var jsonData = {};
+        for (var [k, v] of formData) {
+        jsonData[k] = v;
+        }
+        console.log(jsonData);
+        try{
+        id = document.getElementsByName("id")[0].value
+        apellido = document.getElementsByName("apellido")[0].value
+        nombre = document.getElementsByName("nombre")[0].value
+        dni = document.getElementsByName("dni")[0].value
+        sector = document.getElementsByName("sector")[0].value
+        fechaIngreso = document.getElementsByName("fechaIngreso")[0].value
+        activo = document.getElementsByName("activo")[0].value
+        let c  ={ id,apellido,nombre,dni ,sector ,fechaIngreso ,activo }
+
+        const b = JSON.stringify(c)
+
+        console.log(b)
+        const response =  fetch(`/actualizar/${id}`, {
+            method: 'put',
+            body: b,
+            headers: {'Content-Type': 'application/json'}
+        });
+        const data =  response;
+        //console.log(data)
+        data.then(val => console.log(val));
+        }catch (error){
+            console.log(error);
+        }
+    }
+
+    });
+</script>
+
+<style type="text/css">
+  body {
+    padding-left: 11em;
+    font-family: Georgia, "Times New Roman",
+          Times, serif;
+    color: purple;
+    background-color: #d8da3d }
+  ul.navbar {
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif }
+  </style>
+<link href="./general.css">
+<head>
+    
     <h1>========EDITAR========</h1>
 </head>
 <body>
@@ -8,39 +68,46 @@
 
     <a href="http://localhost:3000/">[Index]</a>
     
-    <table class="table  table-hover table-striped">
-        <body>
-            <p>Nombre:</p>
-            
-            <input type="text" value={{Empleado.nombre}}>
-        </body>
-        <body>
-            <p>Apellido:</p>
-            <input type="text" value={{Empleado.apellido}}>
-        </body>
-        <body>
-            <p>Dni:</p>
-            <input type="text" value={{Empleado.dni}}>
-        </body>
-        <body>
-            <p>Sector:</p>
-            <input type="text" value={{Empleado.sector}}>
-        </body>
-        <body>
-            <p>Fecha Ingreso:</p>
-            <input type="text" value={{Empleado.fechaIngreso}}>
-        </body>
-        <body>
-            <p>Activo:</p>
-            <input type="text" value={{Empleado.activo}}>
-        </body>
-        
-    </table>
+    <form action="" method="post" class="form_contact" id="miForm">
+  <h2></h2>
 
-    </table>
-   </ng-container>
-   <p></p>
-   <button>Editar</button>
+  <div class="user_info">
+
+<div >
+    <label for="id" >ID </label>
+    <td><input type="text" name="id" value= {{OneEmpleado.id}} /></td>
+</div>
+<div >
+    <label for="nombre" >Nombre </label>
+    <td><input type="text" name="nombre" value= {{OneEmpleado.nombre}} /></td>
+</div>
+<div>
+    <label for="sector">apellido</label>
+    <td><input type="text" name="apellido" value={{OneEmpleado.apellido}} /></td>
+</div>
+    <label for="dni">dni</label>
+    <td><input type="text" name="dni" value={{OneEmpleado.dni}} /></td>
+</div>
+<div>
+    <label for="sector">sector</label>
+    <td><input type="text" name="sector" value={{OneEmpleado.sector}} /></td>
+</div>
+<div>
+    <label for="fechaIngreso">fecha Ingreso</label>
+    <td><input type="text" name="fechaIngreso" value={{OneEmpleado.fechaIngreso}} /></td>
+</div>
+<div>
+    <label for="activo">activo</label>
+    <td><input type="text" name="activo" value={{OneEmpleado.activo}} /></td>
+  </div>
+ 
+    <h1></h1>
+    <button type="submit" value="Enviar" id="btnSend">Editar</button>
+
+  </div>
+</form>
+    
+    
     
  
 

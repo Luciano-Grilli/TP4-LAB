@@ -18,8 +18,6 @@ var getAll = getEmpleados()
 //const emplea = getEmpleados();
 app.get('/',(req,res)=> {
     var emp :any= [];
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-    //console.log(Promise.resolve(getEmpleados()))
     getAll.then(val =>{
         emp= val;
         console.log(emp)
@@ -57,10 +55,23 @@ app.get('/crear',(req,res)=> {
     )
 });
 
-app.get('/editar/',(req,res)=> {
-    res.render(
-        'editar',
-        {Empleado: Empleado}
-    )
+app.get('/editar/:id',(req,res)=> {
+    
+    var id =parseInt(req.params.id);
+    console.log(id);
+    var emp :any = [];
+    var OneEmpleado:Empleado;
+    getAll.then(val =>{
+        emp= val;
+        
+       
+        console.log(emp[id]);
+        res.render(
+            'editar',
+            {OneEmpleado: emp[id-1]}
+        )
+        
+    })
+
 });
 
