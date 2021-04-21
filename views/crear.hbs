@@ -1,5 +1,5 @@
 <script>
-    
+
     document.addEventListener("DOMContentLoaded", function(e) {
 
     var miForm = document.getElementById('miForm');
@@ -13,12 +13,12 @@
         console.log(jsonData);
         try{
 
-        apellido = "und "
+        apellido = document.getElementsByName("apellido")[0].value
 	nombre = document.getElementsByName("nombre")[0].value
-	dni = "2323 "
+	dni = document.getElementsByName("dni")[0].value
 	sector = document.getElementsByName("sector")[0].value
-	fechaIngreso = "asd "
-	activo = "si "
+	fechaIngreso = document.getElementsByName("fechaIngreso")[0].value
+	activo = document.getElementsByName("activo")[0].value
         let c  ={ apellido,nombre,dni ,sector ,fechaIngreso ,activo }
 
         const b = JSON.stringify(c)
@@ -40,24 +40,23 @@
     });
 </script>
 
-<form action="" method="post" class="form_contact" id="miForm">
-  <h2>DATOS DE CONTACTO</h2>
-  <div class="user_info">
-
-    >
-
-    <label for="nombre">Nombre </label>
-    <td><input type="text" name="nombre" value="Pedro Pérez" /></td>
-
-    <label for="sector">sector</label>
-    <td><input type="text" name="sector" value="unsector" /></td>
-    <br>
-
-    <button type="submit" value="Enviar" id="btnSend">Enviar</button>
-
-  </div>
-</form>
-
+<style type="text/css">
+  body {
+    padding-left: 11em;
+    font-family: Georgia, "Times New Roman",
+          Times, serif;
+    color: purple;
+    background-color: #d8da3d }
+  ul.navbar {
+    position: absolute;
+    top: 2em;
+    left: 1em;
+    width: 9em }
+  h1 {
+    font-family: Helvetica, Geneva, Arial,
+          SunSans-Regular, sans-serif }
+  </style>
+<link href="./general.css">
 <head>
     
     <h1>========CREAR========</h1>
@@ -69,40 +68,42 @@
 
     <a href="http://localhost:3000/">[Index]</a>
     
+    <form action="" method="post" class="form_contact" id="miForm">
+  <h2></h2>
+
+  <div class="user_info">
+
+<div >
+    <label for="nombre" >Nombre </label>
+    <td><input type="text" name="nombre" value=" nombre" /></td>
+</div>
+<div>
+    <label for="sector">apellido</label>
+    <td><input type="text" name="apellido" value="apellido" /></td>
+</div>
+    <label for="sector">dni</label>
+    <td><input type="text" name="dni" value="231321" /></td>
+</div>
+<div>
+    <label for="sector">sector</label>
+    <td><input type="text" name="sector" value="cocina" /></td>
+</div>
+<div>
+    <label for="sector">fecha Ingreso</label>
+    <td><input type="text" name="fechaIngreso" value="15/5/2021" /></td>
+</div>
+<div>
+    <label for="sector">activo</label>
+    <td><input type="text" name="activo" value="si" /></td>
+  </div>
+ 
+    <h1></h1>
+    <button type="submit" value="Enviar" id="btnSend">Enviar</button>
+
+  </div>
+</form>
     
     
-    <table class="table  table-hover table-striped">
-        <body>
-            <p>Nombre:</p>
-            
-            <input type="text" value="---" name="nombre" id="nombre">
-        </body>
-        <body>
-            <p>Apellido:</p>
-            <input type="text" value="---" name="apellido" id="apellido">
-        </body>
-        <body>
-            <p>Dni:</p>
-            <input type="text" value="---" name="dni" id="dni">
-        </body>
-        <body>
-            <p>Sector:</p>
-            <input type="text" value="---" name="sector">
-        </body>
-        <body>
-            <p>Fecha Ingreso:</p>
-            <input type="text" value="---" name="fecha ingreso">
-        </body>
-        <body>
-            <p>Activo:</p>
-            <input type="text" value="---" name="activo">
-        </body>
-    </table>
-    
-   </ng-container>
-   <p></p>
-   <input type="button" value="obtener el nombre" onclick="persistir()">
-   <input type="button" value="Persistir" onclick="ppp()">
     
  
 

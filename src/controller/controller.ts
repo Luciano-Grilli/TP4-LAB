@@ -39,8 +39,8 @@ export const getEmpleadoXId = (request: Request, response: Response) => new Prom
 });
 
 export const crearEmpleado = (request: Request, response: Response) => new Promise((resolve, reject) => {
-    const { apellido, nombre, dni, sector, fecha, activo } = request.body;
-    var valor = [apellido, nombre, dni, sector, fecha, activo];
+    const { apellido, nombre, dni, sector, fechaIngreso, activo } = request.body;
+    var valor = [apellido, nombre, dni, sector, fechaIngreso, activo];
     conexion.getConnection((err, connection) => {
         if (err) {
             console.error(err);

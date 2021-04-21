@@ -1,0 +1,11 @@
+body{
+    text-align: center;
+    position: center;
+}
+#foo {
+    position: absolute;
+    top: 3em;
+    right: 0;
+    bottom: 3em;
+    left: 0;
+ }
