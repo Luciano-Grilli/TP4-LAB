@@ -1,4 +1,18 @@
+<script class="Query">
+    
+    const fetch = require('node-fetch');
 
+    const body = {id,nombre,apellido,dni,fechaIngreso,activo,sector};
+
+    const response = await fetch('http://localhost:3000/insertar', {
+        method: 'post',
+        body: JSON.stringify(body),
+        headers: {'Content-Type': 'application/json'}
+    });
+    const data = await response.json();
+
+    console.log(data);
+</script>
 <head>
     
     <h1>========CREAR========</h1>
@@ -16,7 +30,7 @@
         <body>
             <p>Nombre:</p>
             
-            <input type="text">
+            <input type="text" value="variable1">
         </body>
         <body>
             <p>Apellido:</p>

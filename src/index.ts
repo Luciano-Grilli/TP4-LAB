@@ -13,9 +13,7 @@ app.listen(3000, ()=> console.log("Servidor en puerto 3000", 3000));
 app.set('view engine', 'hbs')
 
 var getAll = getEmpleados()    
-var getOne
-var create
-var update
+
      
 //const emplea = getEmpleados();
 app.get('/',(req,res)=> {
@@ -33,6 +31,8 @@ app.get('/',(req,res)=> {
     })
 
 });
+
+
 app.get('/getOneEmpleado',(req,res)=> {
     var emp :any= [];
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
@@ -52,7 +52,7 @@ app.get('/getOneEmpleado',(req,res)=> {
 app.get('/crear',(req,res)=> {
     res.render(
         'crear',
-        {Empleados: "CREAR "}
+        {asd: "CREAR "}
     )
 });
 
