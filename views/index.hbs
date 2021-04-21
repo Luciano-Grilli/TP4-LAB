@@ -1,0 +1,45 @@
+
+<head>
+    <h1>========INDEX========</h1>
+</head>
+<body>
+
+   <ng-container>
+    
+    <a href="http://localhost:3000/">[Index]</a>
+    <a>----</a>
+    <a href="http://localhost:3000/crear">[Crear]</a>
+
+    <p></p>
+    <table class="table ">
+
+        <tr>
+            
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Dni</th>
+                <th>Sector</th>
+                <th>Fecha Ingreso</th>
+                <th>Activo</th>
+                           
+            
+        </tr>
+        <tr {{#each emp}}>
+            <td>{{this.nombre}}</td>
+            <td>{{this.apellido}}</td>
+            <td>{{this.dni}}</td>
+            <td>{{this.sector}}</td> 
+            <td>{{this.fechaIngreso}}</td> 
+            <td>{{this.activo}}</td> 
+            <td></td> 
+            <td><a href="http://localhost:3000/editar/1">--[Editar]--</a></td>
+        </tr {{/each}}>
+       
+    </table>
+   </ng-container>
+
+
+</body>
+
+
+
