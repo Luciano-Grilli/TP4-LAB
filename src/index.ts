@@ -1,6 +1,6 @@
 import express from "express";
 import { Empleado } from "./entidad/Empleado";
-import { crearEmpleado, getEmpleado, getEmpleados } from "./querys";
+import { crearEmpleado, getEmpleado, getEmpleados } from "./Querys";
 import routes from './routes/routes';
 
 const app= express();
@@ -32,7 +32,7 @@ app.get('/',(req,res)=> {
 
 });
 
-
+/*
 app.get('/getOneEmpleado',(req,res)=> {
     var emp :any= [];
     console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
@@ -48,6 +48,7 @@ app.get('/getOneEmpleado',(req,res)=> {
     })
 
 });
+*/
 
 app.get('/crear',(req,res)=> {
     res.render(

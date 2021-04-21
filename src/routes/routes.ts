@@ -9,8 +9,8 @@ const ruta = Router();
 
 ruta.get('/empleados', getEmpleados);
 ruta.get('/empleados/:id', getEmpleadoXId);
-ruta.put('/insertar', crearEmpleado);
-ruta.post('/actualizar/:id', updateEmpleado);
+ruta.post('/insertar', crearEmpleado);
+ruta.put('/actualizar/:id', updateEmpleado);
 ruta.delete('/eliminar/:id', eliminarEmpleado);
 
 

@@ -5,5 +5,5 @@ export const conexion = createPool({
     user: 'root',
     password: '',
     database: 'empleados',
-    connectionLimit:120
+    connectionLimit:20
 });

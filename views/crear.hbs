@@ -1,18 +1,63 @@
-<script class="Query">
+<script>
     
-    const fetch = require('node-fetch');
+    document.addEventListener("DOMContentLoaded", function(e) {
 
-    const body = {id,nombre,apellido,dni,fechaIngreso,activo,sector};
+    var miForm = document.getElementById('miForm');
+    miForm.onsubmit = function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var jsonData = {};
+        for (var [k, v] of formData) {
+        jsonData[k] = v;
+        }
+        console.log(jsonData);
+        try{
 
-    const response = await fetch('http://localhost:3000/insertar', {
-        method: 'post',
-        body: JSON.stringify(body),
-        headers: {'Content-Type': 'application/json'}
+        apellido = "und "
+	nombre = document.getElementsByName("nombre")[0].value
+	dni = "2323 "
+	sector = document.getElementsByName("sector")[0].value
+	fechaIngreso = "asd "
+	activo = "si "
+        let c  ={ apellido,nombre,dni ,sector ,fechaIngreso ,activo }
+
+        const b = JSON.stringify(c)
+
+        console.log(b)
+        const response =  fetch('/insertar', {
+            method: 'post',
+            body: b,
+            headers: {'Content-Type': 'application/json'}
+        });
+        const data =  response;
+        //console.log(data)
+        data.then(val => console.log(val));
+        }catch (error){
+            console.log(error);
+        }
+    }
+
     });
-    const data = await response.json();
-
-    console.log(data);
 </script>
+
+<form action="" method="post" class="form_contact" id="miForm">
+  <h2>DATOS DE CONTACTO</h2>
+  <div class="user_info">
+
+    >
+
+    <label for="nombre">Nombre </label>
+    <td><input type="text" name="nombre" value="Pedro Pérez" /></td>
+
+    <label for="sector">sector</label>
+    <td><input type="text" name="sector" value="unsector" /></td>
+    <br>
+
+    <button type="submit" value="Enviar" id="btnSend">Enviar</button>
+
+  </div>
+</form>
+
 <head>
     
     <h1>========CREAR========</h1>
@@ -30,37 +75,34 @@
         <body>
             <p>Nombre:</p>
             
-            <input type="text" value="variable1">
+            <input type="text" value="---" name="nombre" id="nombre">
         </body>
         <body>
             <p>Apellido:</p>
-            <input type="text">
-        </body>
-        <body>
-            <p>Legajo:</p>
-            <input type="text">
+            <input type="text" value="---" name="apellido" id="apellido">
         </body>
         <body>
             <p>Dni:</p>
-            <input type="text">
+            <input type="text" value="---" name="dni" id="dni">
         </body>
         <body>
             <p>Sector:</p>
-            <input type="text">
+            <input type="text" value="---" name="sector">
         </body>
         <body>
             <p>Fecha Ingreso:</p>
-            <input type="text">
+            <input type="text" value="---" name="fecha ingreso">
         </body>
         <body>
             <p>Activo:</p>
-            <input type="text">
+            <input type="text" value="---" name="activo">
         </body>
     </table>
     
    </ng-container>
    <p></p>
-   <button>Crear</button>
+   <input type="button" value="obtener el nombre" onclick="persistir()">
+   <input type="button" value="Persistir" onclick="ppp()">
     
  
 

@@ -39,8 +39,8 @@ export const getEmpleadoXId = (request: Request, response: Response) => new Prom
 });
 
 export const crearEmpleado = (request: Request, response: Response) => new Promise((resolve, reject) => {
-    const {id, apellido, nombre, dni, sector, fecha, activo } = request.body;
-    var valor = [id,apellido, nombre, dni, sector, fecha, activo];
+    const { apellido, nombre, dni, sector, fecha, activo } = request.body;
+    var valor = [apellido, nombre, dni, sector, fecha, activo];
     conexion.getConnection((err, connection) => {
         if (err) {
             console.error(err);
@@ -48,11 +48,11 @@ export const crearEmpleado = (request: Request, response: Response) => new Promi
             return;
         }
         else {
-            let sql: string = 'INSERT INTO empleado (id,apellido, nombre, dni, sector, fecha, activo) VALUES (?,?,?,?,?,?,?)';
+            let sql: string = 'INSERT INTO empleado (apellido, nombre, dni, sector, fechaIngreso, activo) VALUES (?,?,?,?,?,?)';
             connection.query(sql, valor, (err, resultado) => {
                 if (err) {
                     console.error(err);
-                    response.json({ message: 'ERROR!!, no se puede crear un empleado' })
+                    response.json({ message: 'ERROR!!, no se puede crear un empleado',err })
                 }
                 else {
                     response.json({ message: 'Empledo creado correctamente!!' })

@@ -6,7 +6,7 @@ const ruta = express_1.Router();
 //ruta.get('/test', (request, response)=>response.send('Respuesta exitosa'));
 ruta.get('/empleados', controller_1.getEmpleados);
 ruta.get('/empleados/:id', controller_1.getEmpleadoXId);
-ruta.get('/insertar', controller_1.getCrearEmpleado);
+ruta.post('/insertar', controller_1.getCrearEmpleado);
 ruta.get('/actualizar', controller_1.updateEmpleado);
 ruta.get('/eliminar/:id', controller_1.eliminarEmpleado);
 exports.default = ruta;
